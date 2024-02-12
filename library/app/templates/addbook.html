@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Form-v9 by Colorlib</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{% static 'reg/css/nunito-font.css'%}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{% static 'reg/css/style.css' %}">
+</head>
+<body class="form-v9">
+    {% include "adminmenu1.html" %}
+	<div class="page-content" style="background-image:url('{% static 'images/form-v9.jpg' %}')">
+		<div class="form-v9-content" >
+			<form class="form-detail" action="/addbook1/" method="post" name="f1" enctype="multipart/form-data">
+                {% csrf_token %}
+				
+				<div class="form-row-total">
+					<div class="form-row">
+						<input type="text" name="name" id="full-name" class="input-text" placeholder="Book Name" required>
+					</div>
+					<div class="form-row">
+                       
+						<select name="category" class="input-text">
+                            <option value="0">choose a category</option>
+                            <option value="novel">novel</option>
+                            <option value="stories">stories</option>
+							<option value="autobiography">autobiography</option>
+                        </select>
+					</div>
+				</div>
+				<div class="form-row-total">
+					<div class="form-row">
+						<input type="text" name="volume" id="password" class="input-text" placeholder="Volume" required>
+					</div>
+					<div class="form-row">
+						<input type="text" name="author" id="comfirm-password" class="input-text" placeholder="author" required>
+					</div>
+                    <input type="hidden" value="{{d1}}" name="s">
+                    <script>
+                        if(f1.s.value=="1")
+                        {
+                            alert("successfully inserted")
+                        }
+                       </script>
+				</div>
+                <div class="form-row-total">
+					<div class="form-row">
+						<input type="text" name="publisher" id="password" class="input-text" placeholder="Publisher" required>
+					</div>
+					<div class="form-row">
+						<input type="number" name="availablenumber" id="comfirm-password" class="input-text" placeholder="number of available" required>
+					</div>
+                    
+				</div>
+                <div class="form-row-total">
+                  
+					<div class="form-row">
+                        photo
+						<input type="file" name="photo" id="password" class="input-text" placeholder="photo" required>
+					</div>
+					
+                    <div class="form-row">
+                        publishing date
+						<input type="date" name="publishingdate" id="comfirm-password" class="input-text" placeholder="publishing date" required>
+					</div>
+				</div>
+				<div class="form-row-last">
+					<input type="submit" name="register" class="register" value="Register" required>
+				</div>
+			</form>
+		</div>
+	</div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

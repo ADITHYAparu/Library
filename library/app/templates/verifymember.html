@@ -1,0 +1,41 @@
+<html>
+    <head>
+       
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    </head>
+    <body>
+        {% include "adminmenu1.html" %}
+        <br>
+        <br>
+        <br>
+        <br>
+<table class="table table-dark table-striped" style="margin-left:400px;width:60%;">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+        <th></th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for ct in data %}
+      <tr>
+        <th scope="row">{{ct.name}}</th>
+        <td>{{ct.address}}</td>
+        <td>{{ct.phone}}</td>
+        <td>{{ct.email}}</td>
+       
+        
+        <td><a href="/acceptmember/{{ct.memberid}}">Accept</a></td>
+      </tr>
+     {% endfor %}
+    </tbody>
+  </table>
+  
+</body>
+</html>

@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.s1
+		{
+			width:300px;
+			border:1px solid black;
+			height:500px;
+			float:left;
+			margin-top:50px;
+			padding:30px;
+			margin-left:50px;
+			
+		}
+	</style>
+	<script>
+		function valid()
+		{
+			var regularExpression = new RegExp("^[a-z]+(\.[a-z0-9_\+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,4})$");
+			var a=f1.phone.value.length;
+			if(a!=10)
+			{
+				alert("phone should be 10 digits");
+				f1.phone.focus()
+				return false;
+			}
+			if (!regularExpression.test(f1.email.value))
+  {
+  alert("Enter a valid ID.For example:'name@gmail.com'..");
+ return false;
+ }
+			return true;
+		}
+	</script>
+	<meta charset="utf-8">
+	<title>Form-v9 by Colorlib</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{% static 'reg/css/nunito-font.css'%}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{% static 'reg/css/style.css' %}">
+</head>
+<body class="form-v9">
+    {% include "publicmenu.html" %}
+	<div class="page-content" style="background-image:url('{% static 'images/form-v9.jpg' %}');height:200px;">
+		<div class="form-v9-content" >
+			<form class="form-detail" action="/searchbookpublic1/" method="post" name="f1">
+                {% csrf_token %}
+				
+				<div class="form-row-total">
+					<div class="form-row">
+						<input type="text" name="name" id="full-name" class="input-text" placeholder="Name" required >
+					</div>
+                    <center>
+                        <input type="submit" name="register" value="search" required onclick="return valid();" style="width:130px;height:40px;background-color: antiquewhite;text-align: center;">
+                    </center>	
+				</div>
+				
+                <br><br>
+				</div>
+				
+			</form>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+        {% for ct in data %}
+        <div class="s1">
+			<center>
+          <h2>{{ct.name}}</h2>
+        
+          
+            <img src="{{ct.photo}}" alt="Alps" >
+            <br>
+			
+              <p>{{ct.author}}</p>
+              
+        <p>{{ct.category}}</p>
+              
+              <p>{{ct.volume}}</p>
+			</center>
+		</div>    
+        {% endfor %}
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

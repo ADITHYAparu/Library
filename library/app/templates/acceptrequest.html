@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function valid()
+        {
+           
+            let today = new Date();
+
+           
+            enterDate=new Date(f1.expecteddate.value);
+            
+            today.setDate(today.getDate() + 7);
+            enterDate1=new Date(f1.expecteddate.value);
+            
+            
+            if(today<enterDate)
+            {
+                alert("invalid");
+                return false;
+
+            }
+            return true;
+           
+        }
+    </script>
+	<meta charset="utf-8">
+	<title>Form-v9 by Colorlib</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{% static 'reg/css/nunito-font.css'%}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{% static 'reg/css/style.css' %}">
+    <style>
+        textarea{
+            width: 100%;
+    padding: 14.5px 0px 14.5px 30px;
+    border: 2px solid rgba(88, 138, 145, 0.932);
+    appearance: unset;
+    -moz-appearance: unset;
+    -webkit-appearance: unset;
+    -o-appearance: unset;
+    -ms-appearance: unset;
+    outline: none;
+    -moz-outline: none;
+    -webkit-outline: none;
+    -o-outline: none;
+    -ms-outline: none;
+    border-radius: 27.5px;
+    -o-border-radius: 27.5px;
+    -ms-border-radius: 27.5px;
+    -moz-border-radius: 27.5px;
+    -webkit-border-radius: 27.5px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="form-v9">
+    {% include "adminmenu.html" %}
+	<div class="page-content" style="background-image:url('{% static 'images/form-v9.jpg' %}')">
+		<div class="form-v9-content" >
+			<form class="form-detail" action="/acceptrequest1/{{id}}" method="post" name="f1">
+                {% csrf_token %}
+				<BR><BR><BR>
+				<div class="form-row-total">
+                    Expected Return Date
+                  
+						<input type="date" name="expecteddate" id="password" class="input-text" placeholder="" required>
+				
+				</div>
+				
+                    <input type="hidden" value="{{d1}}" name="s">
+                    <script>
+                        if(f1.s.value=="1")
+                        {
+                            alert("successfully inserted")
+                        }
+                       </script>
+				
+				<div class="form-row-last">
+					<input type="submit" name="register" class="register" value="Register" onClick=" return valid()"required>
+				</div>
+			</form>
+		</div>
+	</div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

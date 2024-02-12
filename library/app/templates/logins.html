@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <title>Login Page with Background Image Example</title>
+  <link rel="stylesheet" href="{% static 'log.css' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="bg"></div>
+
+<form method="post" action="/login1/">
+  {% csrf_token %}
+  <div class="form-field">
+    <input type="text" placeholder="username" name="username" required/>
+  </div>
+  
+  <div class="form-field">
+    <input type="password" placeholder="Password" required name="password" />                         </div>
+  
+  <div class="form-field">
+    <button class="btn" type="submit">Log in</button>
+  </div>
+</form>
+<!-- partial -->
+  
+</body>
+</html>
